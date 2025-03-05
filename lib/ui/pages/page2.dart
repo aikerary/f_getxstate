@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import '../../controllers/count_controller.dart';
 
 class Page2 extends StatelessWidget {
   const Page2({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final CountController controller = Get.find<CountController>();
+
     return Scaffold(
       appBar: AppBar(
         title: const Text('Page 2'),
@@ -14,11 +18,12 @@ class Page2 extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text('Value'),
+            Obx(() => Text('${controller.count.value}',
+                style: Theme.of(context).textTheme.headlineMedium)),
             ElevatedButton(
                 key: const Key('incrementButtonPage2'),
-                onPressed: null,
-                child: Text('Increment'))
+                onPressed: () => controller.increment(),
+                child: const Text('Increment'))
           ],
         ),
       ),

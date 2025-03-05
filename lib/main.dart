@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'ui/pages/page1.dart';
+import 'controllers/count_controller.dart';
 
 void main() {
   runApp(const MyApp());
@@ -11,8 +12,8 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    //todo: uncomment this line to use GetX
-    //Get.put(CountController());
+    // Initialize the controller when the app starts
+    Get.put(CountController());
     return GetMaterialApp(
         title: 'GetX Demo',
         debugShowCheckedModeBanner: false,
